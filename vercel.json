@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm build && pnpm build-storybook",
+  "buildCommand": "pnpm --filter @lets-ui/tokens build && pnpm --filter @lets-ui/styles build && pnpm build-storybook",
   "outputDirectory": "storybook-static",
   "installCommand": "pnpm install"
 }
