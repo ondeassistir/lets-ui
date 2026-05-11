@@ -19,5 +19,23 @@ const config = {
     },
   ],
   framework: '@storybook/html-vite',
+  viteFinal: async (config) => ({
+    ...config,
+    optimizeDeps: {
+      ...config.optimizeDeps,
+      exclude: [
+        ...(config.optimizeDeps?.exclude ?? []),
+        '@lets-ui/tokens',
+        '@lets-ui/styles',
+      ],
+    },
+    build: {
+      ...config.build,
+      commonjsOptions: {
+        ...config.build?.commonjsOptions,
+        ignore: ['@lets-ui/tokens', '@lets-ui/styles'],
+      },
+    },
+  }),
 };
 export default config;
